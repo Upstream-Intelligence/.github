@@ -106,15 +106,80 @@ How Upstream compares to other categories of healthcare revenue tooling. Upstrea
 
 ---
 
-## We are in beta
+## Why this exists
 
-We just launched. We are training the detection engine on real claims data from operator practices. Every operator who joins makes the network smarter for everyone.
+We built Upstream after sitting in too many billing meetings where the team learned about a denial spike from last month's report. By then it was already a quarter of revenue gone.
 
-Founding operators get **Pioneer pricing at $49 per month, locked for life.** Pioneer pricing closes when beta ends.
+The early warning systems already existed in finance, retail, and ad tech. Healthcare revenue cycle had nothing comparable. Vendors guarded their methodology. Operators flew blind.
 
-Pioneer access includes full platform features at the Starter tier limits, direct input into the detection roadmap, and credit toward an early case study if your numbers improve.
+So we built the early warning system we wished existed. Then we open sourced the methodology so the broader RCM community can audit it, build on it, and contribute back.
 
-[Claim a Pioneer seat at upstream.cx/pricing](https://upstream.cx/pricing)
+This is a serious vendor for a serious problem. It is also, transparently, a beta. Founding operators get pricing locked for life because their data shapes what the network catches next.
+
+---
+
+## Founding 5 Program
+
+**5 founding operator seats. 0 claimed. Closing when claimed.**
+
+Founding seat unlocks:
+
+- Pioneer pricing at $49 per month, **locked for life across all future tiers**
+- Direct input into the detection roadmap
+- Co-authored case study credit when your numbers improve
+- Quarterly 1:1 with the founder
+- First access to new specialty packs as they ship
+
+This is not a discount tier. The 6th operator pays Starter pricing. The 100th operator pays whatever the market sets. Founding seats compound forever.
+
+[Claim a Founding 5 seat](https://upstream.cx/pricing) · [Free claim audit first](https://upstream.cx/audit)
+
+---
+
+## Built in public
+
+Upstream is a working production system, not a slide deck. Numbers below are pulled from the actual codebase, not aspirational marketing.
+
+| Signal | Count | Source |
+|---|---|---|
+| Open source modules | 7 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) |
+| Specialty packs shipped | 8 | ABA, SNF, PT/OT, dental, dialysis, imaging, home health, behavioral health |
+| Detection engines live | 6 | DriftWatch, DenialScope, DelayGuard, Authorization Tracking, Pre-Submission Risk Scoring, Behavioral Prediction |
+| Public Claude MCP tools | 11 | [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) |
+| Public Claude Code skills | 5 | [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) |
+| Public CMS data integrations | 7 | NCCI, CARC, RARC, MUE, Physician Fee Schedule, NPPES, Federal Register |
+| Free tools live | 3 | Claim audit, Plan Denial Heatmap, Prior Auth Sandbox |
+| BAA template | Available | hello@upstream.cx |
+| Security disclosure path | Active | security@upstream.cx |
+| HIPAA technical safeguards | Implemented | [SECURITY.md](https://github.com/Upstream-Intelligence/.github/blob/main/SECURITY.md) |
+
+Refreshed monthly. Last refresh: 2026-04-25.
+
+---
+
+## What an Upstream alert looks like
+
+Real alert format. Synthetic example for illustration only. Numbers are not from any specific operator.
+
+> ### Alert: UnitedHealthcare adjudication shift detected
+>
+> **Severity**: HIGH
+> **Detected**: 2026-04-15 at 02:14 UTC
+> **Scope**: Network-wide pattern
+>
+> **What we saw**
+> UnitedHealthcare adjudication of CPT 97155 paired with diagnosis F84.0 shifted from a 8.2 percent denial baseline (13 week window) to 31.4 percent denial in the last 7 days. Chi-square p less than 0.001. Pattern detected on 835 remittance from multiple operators across 3 states on the same day.
+>
+> **Affected work in your account**
+> 23 in-flight authorizations match the new pattern.
+>
+> **Recommended action**
+> Review the 23 flagged authorizations in your Action Queue. Document the medical necessity rationale per the new criteria pattern (template attached). Submit revised authorizations within 14 days to avoid timely-filing risk.
+>
+> **Source**
+> 835 remittance pattern detection across the operator network. Chi-square statistical significance plus dollar weighted impact threshold.
+
+This is what your billing team would see in their queue the morning a payer behavior shift hits. Not a monthly summary. Not a quarterly board slide. The actionable alert with the specific work to do.
 
 ---
 
