@@ -10,6 +10,8 @@ What payers are doing right now. How it affects your revenue. What to do about i
 
 </div>
 
+> **Founding 5 Pioneer Program** — $49/mo locked for life. [Claim your seat →](https://upstream.cx/pioneer)
+
 ---
 
 ## 30 second answer
