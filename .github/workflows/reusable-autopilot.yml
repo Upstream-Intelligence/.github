@@ -163,6 +163,7 @@ jobs:
         run: |
           DATE=$(date -u +%Y-%m-%d)
           BRANCH="chore/auto-maintain-${DATE}"
+          git config core.hooksPath /dev/null
           git config user.name "upstream-autopilot[bot]"
           git config user.email "autopilot@upstream.cx"
           git checkout -B "$BRANCH"
