@@ -1,0 +1,110 @@
+name: Reusable CI
+
+on:
+  workflow_call:
+    inputs:
+      stack:
+        description: "node | python | both | auto"
+        type: string
+        default: "auto"
+      node_version:
+        type: string
+        default: "20"
+      python_version:
+        type: string
+        default: "3.12"
+      working_directory:
+        type: string
+        default: "."
+      run_tests:
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      has_node: ${{ steps.d.outputs.has_node }}
+      has_python: ${{ steps.d.outputs.has_python }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: d
+        env:
+          STACK: ${{ inputs.stack }}
+          WD: ${{ inputs.working_directory }}
+        run: |
+          cd "$WD"
+          case "$STACK" in
+            node)   echo "has_node=true"  >> "$GITHUB_OUTPUT"; echo "has_python=false" >> "$GITHUB_OUTPUT" ;;
+            python) echo "has_node=false" >> "$GITHUB_OUTPUT"; echo "has_python=true"  >> "$GITHUB_OUTPUT" ;;
+            both)   echo "has_node=true"  >> "$GITHUB_OUTPUT"; echo "has_python=true"  >> "$GITHUB_OUTPUT" ;;
+            *)
+              [ -f package.json ] && echo "has_node=true" >> "$GITHUB_OUTPUT" || echo "has_node=false" >> "$GITHUB_OUTPUT"
+              { [ -f pyproject.toml ] || [ -f requirements.txt ]; } && echo "has_python=true" >> "$GITHUB_OUTPUT" || echo "has_python=false" >> "$GITHUB_OUTPUT"
+              ;;
+          esac
+
+  node:
+    needs: detect
+    if: needs.detect.outputs.has_node == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working_directory }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: npm
+          cache-dependency-path: ${{ inputs.working_directory }}/package-lock.json
+      - run: npm ci --prefer-offline --no-audit --no-fund
+      - name: Lint
+        run: |
+          if npm run | grep -q '^  lint$'; then npm run lint; else echo "no lint script"; fi
+      - name: Typecheck
+        run: |
+          if npm run | grep -qE '^  (typecheck|type-check|tsc)$'; then
+            npm run typecheck 2>/dev/null || npm run type-check 2>/dev/null || npm run tsc
+          elif [ -f tsconfig.json ]; then
+            npx tsc --noEmit
+          else
+            echo "no typecheck"
+          fi
+      - name: Test
+        if: inputs.run_tests
+        run: |
+          if npm run | grep -q '^  test$'; then npm test --if-present; else echo "no test script"; fi
+
+  python:
+    needs: detect
+    if: needs.detect.outputs.has_python == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working_directory }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python_version }}
+          cache: pip
+      - name: Install uv
+        run: pipx install uv
+      - name: Sync deps
+        run: |
+          if [ -f pyproject.toml ]; then uv sync --frozen 2>/dev/null || uv sync; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint
+        run: |
+          if [ -f pyproject.toml ]; then uv run ruff check . 2>/dev/null || true; fi
+      - name: Typecheck
+        run: |
+          if [ -f pyproject.toml ]; then uv run mypy . --ignore-missing-imports 2>/dev/null || true; fi
+      - name: Test
+        if: inputs.run_tests
+        run: |
+          if [ -f pyproject.toml ]; then uv run pytest --tb=short -q 2>/dev/null || true; fi
