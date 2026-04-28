@@ -152,6 +152,12 @@ jobs:
             uv run ruff format . 2>/dev/null || true
           fi
 
+      - name: Revert workflow file changes (autopilot cannot push workflow updates without workflows perm)
+        run: |
+          if [ -n "$(git status --porcelain .github/workflows/ 2>/dev/null)" ]; then
+            git checkout HEAD -- .github/workflows/ 2>/dev/null || true
+          fi
+
       - name: Diff check
         id: diff
         run: |
