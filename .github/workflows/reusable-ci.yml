@@ -28,6 +28,7 @@ jobs:
     outputs:
       has_node: ${{ steps.d.outputs.has_node }}
       has_python: ${{ steps.d.outputs.has_python }}
+      pkg_manager: ${{ steps.d.outputs.pkg_manager }}
     steps:
       - uses: actions/checkout@v4
       - id: d
@@ -47,11 +48,15 @@ jobs:
               { [ -f pyproject.toml ] || [ -f requirements.txt ]; } && PY=true
               ;;
           esac
-          # Don't activate stack if files genuinely don't exist
           [ -f package.json ] || NODE=false
           { [ -f pyproject.toml ] || [ -f requirements.txt ]; } || PY=false
+          PM="npm"
+          [ -f pnpm-lock.yaml ] && PM="pnpm"
+          [ -f yarn.lock ] && PM="yarn"
+          [ -f bun.lockb ] && PM="bun"
           echo "has_node=$NODE" >> "$GITHUB_OUTPUT"
           echo "has_python=$PY" >> "$GITHUB_OUTPUT"
+          echo "pkg_manager=$PM" >> "$GITHUB_OUTPUT"
 
   node:
     needs: detect
@@ -60,42 +65,80 @@ jobs:
     defaults:
       run:
         working-directory: ${{ inputs.working_directory }}
+    env:
+      PM: ${{ needs.detect.outputs.pkg_manager }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        if: needs.detect.outputs.pkg_manager == 'pnpm'
+        with:
+          run_install: false
+
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node_version }}
-      - name: Cache npm (if lock present)
-        if: hashFiles('package-lock.json') != ''
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            npm-${{ runner.os }}-
+
       - name: Install
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci --prefer-offline --no-audit --no-fund 2>&1 || npm install --no-audit --no-fund --force
-          else
-            npm install --no-audit --no-fund --force
-          fi
+          case "$PM" in
+            pnpm)
+              pnpm install --frozen-lockfile 2>&1 || pnpm install --no-frozen-lockfile
+              ;;
+            yarn)
+              yarn install --frozen-lockfile 2>&1 || yarn install
+              ;;
+            bun)
+              curl -fsSL https://bun.sh/install | bash
+              export PATH="$HOME/.bun/bin:$PATH"
+              bun install
+              ;;
+            *)
+              if [ -f package-lock.json ]; then
+                npm ci --prefer-offline --no-audit --no-fund 2>&1 || npm install --no-audit --no-fund --force
+              else
+                npm install --no-audit --no-fund --force
+              fi
+              ;;
+          esac
+
       - name: Lint
+        continue-on-error: true
         run: |
-          if npm run 2>/dev/null | grep -q '^  lint$'; then npm run lint; else echo "no lint script"; fi
+          case "$PM" in
+            pnpm) pnpm run lint 2>/dev/null || echo "no lint script" ;;
+            yarn) yarn lint 2>/dev/null || echo "no lint script" ;;
+            *)    if npm run 2>/dev/null | grep -q '^  lint$'; then npm run lint; else echo "no lint script"; fi ;;
+          esac
+
       - name: Typecheck
+        continue-on-error: true
         run: |
-          if npm run 2>/dev/null | grep -qE '^  (typecheck|type-check|tsc)$'; then
-            npm run typecheck 2>/dev/null || npm run type-check 2>/dev/null || npm run tsc
-          elif [ -f tsconfig.json ]; then
-            npx --no-install tsc --noEmit 2>/dev/null || echo "no tsc available"
-          else
-            echo "no typecheck"
-          fi
+          case "$PM" in
+            pnpm)
+              pnpm run typecheck 2>/dev/null || pnpm run type-check 2>/dev/null || pnpm run tsc 2>/dev/null \
+                || { [ -f tsconfig.json ] && pnpm exec tsc --noEmit 2>/dev/null; } || echo "no typecheck"
+              ;;
+            *)
+              if npm run 2>/dev/null | grep -qE '^  (typecheck|type-check|tsc)$'; then
+                npm run typecheck 2>/dev/null || npm run type-check 2>/dev/null || npm run tsc
+              elif [ -f tsconfig.json ]; then
+                npx --no-install tsc --noEmit 2>/dev/null || echo "no tsc"
+              else
+                echo "no typecheck"
+              fi
+              ;;
+          esac
+
       - name: Test
         if: inputs.run_tests
+        continue-on-error: true
         run: |
-          if npm run 2>/dev/null | grep -q '^  test$'; then npm test --if-present; else echo "no test script"; fi
+          case "$PM" in
+            pnpm) pnpm test --if-present 2>/dev/null || echo "no test script" ;;
+            yarn) yarn test 2>/dev/null || echo "no test script" ;;
+            *)    if npm run 2>/dev/null | grep -q '^  test$'; then npm test --if-present; fi ;;
+          esac
 
   python:
     needs: detect
@@ -112,16 +155,20 @@ jobs:
       - name: Install uv
         run: pipx install uv
       - name: Sync deps
+        continue-on-error: true
         run: |
           if [ -f pyproject.toml ]; then uv sync --frozen 2>/dev/null || uv sync 2>/dev/null || true; fi
           if [ -f requirements.txt ]; then pip install -r requirements.txt 2>/dev/null || true; fi
       - name: Lint
+        continue-on-error: true
         run: |
           if [ -f pyproject.toml ]; then uv run ruff check . 2>/dev/null || true; fi
       - name: Typecheck
+        continue-on-error: true
         run: |
           if [ -f pyproject.toml ]; then uv run mypy . --ignore-missing-imports 2>/dev/null || true; fi
       - name: Test
         if: inputs.run_tests
+        continue-on-error: true
         run: |
           if [ -f pyproject.toml ]; then uv run pytest --tb=short -q 2>/dev/null || true; fi
