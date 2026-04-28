@@ -28,7 +28,6 @@ jobs:
     outputs:
       has_node: ${{ steps.d.outputs.has_node }}
       has_python: ${{ steps.d.outputs.has_python }}
-      has_node_lock: ${{ steps.d.outputs.has_node_lock }}
     steps:
       - uses: actions/checkout@v4
       - id: d
@@ -39,6 +38,7 @@ jobs:
           cd "$WD"
           NODE=false; PY=false
           case "$STACK" in
+            none)   ;;
             node)   NODE=true ;;
             python) PY=true ;;
             both)   NODE=true; PY=true ;;
@@ -47,13 +47,11 @@ jobs:
               { [ -f pyproject.toml ] || [ -f requirements.txt ]; } && PY=true
               ;;
           esac
+          # Don't activate stack if files genuinely don't exist
+          [ -f package.json ] || NODE=false
+          { [ -f pyproject.toml ] || [ -f requirements.txt ]; } || PY=false
           echo "has_node=$NODE" >> "$GITHUB_OUTPUT"
           echo "has_python=$PY" >> "$GITHUB_OUTPUT"
-          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] || [ -f yarn.lock ] || [ -f pnpm-lock.yaml ]; then
-            echo "has_node_lock=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_node_lock=false" >> "$GITHUB_OUTPUT"
-          fi
 
   node:
     needs: detect
@@ -65,19 +63,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        if: needs.detect.outputs.has_node_lock == 'true'
         with:
           node-version: ${{ inputs.node_version }}
-          cache: npm
-          cache-dependency-path: ${{ inputs.working_directory }}/package-lock.json
-      - uses: actions/setup-node@v4
-        if: needs.detect.outputs.has_node_lock != 'true'
+      - name: Cache npm (if lock present)
+        if: hashFiles('package-lock.json') != ''
+        uses: actions/cache@v4
         with:
-          node-version: ${{ inputs.node_version }}
+          path: ~/.npm
+          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ runner.os }}-
       - name: Install
         run: |
           if [ -f package-lock.json ]; then
-            npm ci --prefer-offline --no-audit --no-fund || npm install --no-audit --no-fund --force
+            npm ci --prefer-offline --no-audit --no-fund 2>&1 || npm install --no-audit --no-fund --force
           else
             npm install --no-audit --no-fund --force
           fi
