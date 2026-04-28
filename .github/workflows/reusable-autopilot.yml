@@ -80,24 +80,31 @@ jobs:
           PM: ${{ steps.detect.outputs.pkg_manager }}
         continue-on-error: true
         run: |
+          set +e
           case "$PM" in
             pnpm)
-              pnpm install --frozen-lockfile 2>&1 || pnpm install --no-frozen-lockfile
+              pnpm install --frozen-lockfile 2>&1 || pnpm install --no-frozen-lockfile || true
               pnpm update --recursive --latest=false 2>/dev/null || true
               ;;
             yarn)
-              yarn install --frozen-lockfile 2>&1 || yarn install
+              yarn install --frozen-lockfile 2>&1 || yarn install || true
               yarn upgrade --latest=false 2>/dev/null || true
               ;;
             *)
               if [ -f package-lock.json ]; then
-                npm ci --prefer-offline --no-audit --no-fund 2>&1 || npm install --no-audit --no-fund --force
+                npm ci --prefer-offline --no-audit --no-fund 2>/dev/null \
+                  || npm install --no-audit --no-fund --legacy-peer-deps 2>/dev/null \
+                  || npm install --no-audit --no-fund --force 2>/dev/null \
+                  || true
               else
-                npm install --no-audit --no-fund --force
+                npm install --no-audit --no-fund --legacy-peer-deps 2>/dev/null \
+                  || npm install --no-audit --no-fund --force 2>/dev/null \
+                  || true
               fi
               npm update --save 2>/dev/null || true
               ;;
           esac
+          exit 0
 
       - name: Lint --fix Node
         if: steps.detect.outputs.node == 'true'
