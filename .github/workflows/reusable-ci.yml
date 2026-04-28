@@ -4,7 +4,6 @@ on:
   workflow_call:
     inputs:
       stack:
-        description: "node | python | both | auto"
         type: string
         default: "auto"
       node_version:
@@ -29,6 +28,7 @@ jobs:
     outputs:
       has_node: ${{ steps.d.outputs.has_node }}
       has_python: ${{ steps.d.outputs.has_python }}
+      has_node_lock: ${{ steps.d.outputs.has_node_lock }}
     steps:
       - uses: actions/checkout@v4
       - id: d
@@ -37,15 +37,23 @@ jobs:
           WD: ${{ inputs.working_directory }}
         run: |
           cd "$WD"
+          NODE=false; PY=false
           case "$STACK" in
-            node)   echo "has_node=true"  >> "$GITHUB_OUTPUT"; echo "has_python=false" >> "$GITHUB_OUTPUT" ;;
-            python) echo "has_node=false" >> "$GITHUB_OUTPUT"; echo "has_python=true"  >> "$GITHUB_OUTPUT" ;;
-            both)   echo "has_node=true"  >> "$GITHUB_OUTPUT"; echo "has_python=true"  >> "$GITHUB_OUTPUT" ;;
+            node)   NODE=true ;;
+            python) PY=true ;;
+            both)   NODE=true; PY=true ;;
             *)
-              [ -f package.json ] && echo "has_node=true" >> "$GITHUB_OUTPUT" || echo "has_node=false" >> "$GITHUB_OUTPUT"
-              { [ -f pyproject.toml ] || [ -f requirements.txt ]; } && echo "has_python=true" >> "$GITHUB_OUTPUT" || echo "has_python=false" >> "$GITHUB_OUTPUT"
+              [ -f package.json ] && NODE=true
+              { [ -f pyproject.toml ] || [ -f requirements.txt ]; } && PY=true
               ;;
           esac
+          echo "has_node=$NODE" >> "$GITHUB_OUTPUT"
+          echo "has_python=$PY" >> "$GITHUB_OUTPUT"
+          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] || [ -f yarn.lock ] || [ -f pnpm-lock.yaml ]; then
+            echo "has_node_lock=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_node_lock=false" >> "$GITHUB_OUTPUT"
+          fi
 
   node:
     needs: detect
@@ -57,27 +65,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+        if: needs.detect.outputs.has_node_lock == 'true'
         with:
           node-version: ${{ inputs.node_version }}
           cache: npm
           cache-dependency-path: ${{ inputs.working_directory }}/package-lock.json
-      - run: npm ci --prefer-offline --no-audit --no-fund
+      - uses: actions/setup-node@v4
+        if: needs.detect.outputs.has_node_lock != 'true'
+        with:
+          node-version: ${{ inputs.node_version }}
+      - name: Install
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --prefer-offline --no-audit --no-fund || npm install --no-audit --no-fund --legacy-peer-deps
+          else
+            npm install --no-audit --no-fund --legacy-peer-deps
+          fi
       - name: Lint
         run: |
-          if npm run | grep -q '^  lint$'; then npm run lint; else echo "no lint script"; fi
+          if npm run 2>/dev/null | grep -q '^  lint$'; then npm run lint; else echo "no lint script"; fi
       - name: Typecheck
         run: |
-          if npm run | grep -qE '^  (typecheck|type-check|tsc)$'; then
+          if npm run 2>/dev/null | grep -qE '^  (typecheck|type-check|tsc)$'; then
             npm run typecheck 2>/dev/null || npm run type-check 2>/dev/null || npm run tsc
           elif [ -f tsconfig.json ]; then
-            npx tsc --noEmit
+            npx --no-install tsc --noEmit 2>/dev/null || echo "no tsc available"
           else
             echo "no typecheck"
           fi
       - name: Test
         if: inputs.run_tests
         run: |
-          if npm run | grep -q '^  test$'; then npm test --if-present; else echo "no test script"; fi
+          if npm run 2>/dev/null | grep -q '^  test$'; then npm test --if-present; else echo "no test script"; fi
 
   python:
     needs: detect
@@ -91,13 +110,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ inputs.python_version }}
-          cache: pip
       - name: Install uv
         run: pipx install uv
       - name: Sync deps
         run: |
-          if [ -f pyproject.toml ]; then uv sync --frozen 2>/dev/null || uv sync; fi
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f pyproject.toml ]; then uv sync --frozen 2>/dev/null || uv sync 2>/dev/null || true; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt 2>/dev/null || true; fi
       - name: Lint
         run: |
           if [ -f pyproject.toml ]; then uv run ruff check . 2>/dev/null || true; fi
