@@ -12,7 +12,7 @@ What payers are doing right now. How it affects your revenue. What to do about i
 
 </div>
 
-> **Founding 5 Pioneer Program** — 5 founding operator seats. 0 claimed. Closing when claimed.
+> **Founding 5 Pioneer Program**: 5 founding operator seats. 0 claimed. Closing when claimed.
 >
 > Pioneer seat unlocks: $49/mo locked for life across all future tiers · Direct input into the detection roadmap · Co-authored case study credit when your numbers improve · Quarterly 1:1 with the founder · First access to new specialty packs as they ship.
 >
@@ -24,7 +24,7 @@ What payers are doing right now. How it affects your revenue. What to do about i
 
 ## 30 seconds
 
-**Upstream is a Care Intelligence Platform.** It detects payer behavior shifts — denial spikes, adjudication policy changes, payment slowdowns — before traditional reporting catches them. Operators across eight healthcare specialties use Upstream to act before the damage lands.
+**Upstream is a Care Intelligence Platform.** It detects payer behavior shifts: denial spikes, adjudication policy changes, payment slowdowns. These surface before traditional reporting catches them. Operators across eight healthcare specialties use Upstream to act before the damage lands.
 
 **It is not a clearinghouse.** Upstream sits on top of your existing billing stack as a force multiplier. We do not bill payers. We do not bill patients. We do not replace your billing team. We tell them what to work on and when.
 
@@ -101,7 +101,7 @@ Upstream is in a different lane than clearinghouses or legacy enterprise RCM. Mo
 
 ## Why Care Intelligence
 
-Healthcare revenue cycle management has a timing problem. Denial spikes surface in monthly reports — by then the quarter is already at risk. Care Intelligence solves the timing gap: behavioral pattern detection that surfaces payer shifts the first time they appear, not the thirtieth. The early warning infrastructure existed in finance and ad tech for years. Healthcare revenue cycle had nothing comparable. Upstream closes that gap with an open methodology any operator or developer can audit.
+Healthcare revenue cycle management has a timing problem. Denial spikes surface in monthly reports. By then the quarter is already at risk. Care Intelligence solves the timing gap: behavioral pattern detection that surfaces payer shifts the first time they appear, not the thirtieth. The early warning infrastructure existed in finance and ad tech for years. Healthcare revenue cycle had nothing comparable. Upstream closes that gap with an open methodology any operator or developer can audit.
 
 ---
 
