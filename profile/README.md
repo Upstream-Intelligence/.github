@@ -14,7 +14,7 @@ What payers are doing right now. How it affects your revenue. What to do about i
 
 > **Founding 5 Pioneer Program**: 5 founding operator seats. 0 claimed. Closing when claimed.
 >
-> Pioneer seat unlocks: $49/mo locked for life across all future tiers · Direct input into the detection roadmap · Co-authored case study credit when your numbers improve · Quarterly 1:1 with the founder · First access to new specialty packs as they ship.
+> Pioneer seat unlocks: $49/mo locked for life across all future tiers · Direct input into the detection roadmap · Co-authored case study credit when your numbers improve · Quarterly 1:1 strategy call · First access to new specialty packs as they ship.
 >
 > The 6th operator pays Starter pricing. Founding seats compound forever.
 >
