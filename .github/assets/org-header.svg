@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="280" viewBox="0 0 1280 280">
+  <rect width="1280" height="280" fill="#0F172A"/>
+
+  <!-- Wordmark: upstream + .cx -->
+  <text x="80" y="120" font-family="'Courier New', monospace" font-size="56" font-weight="700" fill="#0454F1">upstream</text>
+  <text x="358" y="120" font-family="'Courier New', monospace" font-size="56" font-weight="700" fill="#475569">.cx</text>
+
+  <!-- Tagline -->
+  <text x="80" y="162" font-family="'Courier New', monospace" font-size="18" fill="#94A3B8">Care Intelligence Platform for healthcare practices.</text>
+
+  <!-- Thin rule — 60% width = 768px, starting at x=80 -->
+  <line x1="80" y1="192" x2="848" y2="192" stroke="#0454F1" stroke-opacity="0.4" stroke-width="1"/>
+
+  <!-- Specialty strip -->
+  <text x="80" y="240" font-family="'Courier New', monospace" font-size="13" fill="#475569">ABA · SNF · PT/OT · Dental · Dialysis · Imaging · Home Health · Behavioral Health</text>
+</svg>
