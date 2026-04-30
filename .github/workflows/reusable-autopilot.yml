@@ -131,7 +131,7 @@ jobs:
         with:
           python-version: ${{ inputs.python_version }}
 
-      - uses: astral-sh/setup-uv@v3
+      - uses: astral-sh/setup-uv@v7
         if: steps.detect.outputs.python == 'true'
 
       - name: Update Python deps
