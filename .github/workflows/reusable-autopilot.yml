@@ -64,7 +64,7 @@ jobs:
           echo "python=$PY" >> "$GITHUB_OUTPUT"
           echo "pkg_manager=$PM" >> "$GITHUB_OUTPUT"
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v6
         if: steps.detect.outputs.pkg_manager == 'pnpm' && steps.detect.outputs.node == 'true'
         with:
           run_install: false
