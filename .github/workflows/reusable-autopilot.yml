@@ -126,7 +126,7 @@ jobs:
             npx --no-install prettier --write . 2>/dev/null || true
           fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         if: steps.detect.outputs.python == 'true'
         with:
           python-version: ${{ inputs.python_version }}
