@@ -17,8 +17,8 @@ This file is the org wide fallback. Each repository may have its own CONTRIBUTIN
 
 - Bug fixes with tests that prove the fix
 - Documentation improvements that make a concept clearer
-- Additional CARC and RARC code coverage
-- Specialty specific enhancements (ABA, SNF, PT/OT, dental, dialysis, imaging, home health, behavioral health)
+- Reference data coverage (CARC/RARC codes, payer registries — submit in `upstream-community`)
+- Specialty-specific enhancements across the eight verticals we cover
 - Performance improvements with before and after measurements
 - Better example queries
 - Notebooks demonstrating real workflows
