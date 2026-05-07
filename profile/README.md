@@ -114,8 +114,8 @@ The core platform stays private. Three tools are openly available.
 
 | Repository | What it is | License |
 |---|---|---|
-| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | Model Context Protocol server. Bring Upstream intelligence into Claude with 11 tools across 5 categories. | MIT |
-| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Claude Code skill pack. Five workflow skills for billing teams. | MIT |
+| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | Model Context Protocol server. Bring Upstream intelligence into Claude with 12 tools across 5 categories. | MIT |
+| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Claude Code skill pack. Eight workflow skills for billing teams. | MIT |
 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) | Reference ML implementations using public CMS data. CatBoost denial predictor, drift detection, payer clustering. Methodology, not weights. | MIT |
 
 ---
@@ -129,8 +129,8 @@ Upstream is a working production system, not a slide deck. Numbers below are pul
 | Open source modules | 7 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) |
 | Specialty packs shipped | 8 | ABA, SNF, PT/OT, dental, dialysis, imaging, home health, behavioral health |
 | Detection engines live | 6 | DriftWatch, DenialScope, DelayGuard, Authorization Tracking, Pre-Submission Risk Scoring, Behavioral Prediction |
-| Public Claude MCP tools | 11 | [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) |
-| Public Claude Code skills | 5 | [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) |
+| Public Claude MCP tools | 12 | [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) |
+| Public Claude Code skills | 8 | [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) |
 | Public CMS data integrations | 7 | NCCI, CARC, RARC, MUE, Physician Fee Schedule, NPPES, Federal Register |
 | Free tools live | 3 | Claim audit, Plan Denial Heatmap, Prior Auth Sandbox |
 | BAA template | Available | hello@upstream.cx |
@@ -171,8 +171,8 @@ This is what your billing team sees in their queue the morning a payer behavior 
 
 | Resource | What it gives you |
 |---|---|
-| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | MCP server. Bring Upstream into Claude with 11 tools across 5 categories. |
-| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Claude Code skill pack. Five workflow skills for billing teams. |
+| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | MCP server. Bring Upstream into Claude with 12 tools across 5 categories. |
+| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Claude Code skill pack. Eight workflow skills for billing teams. |
 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) | Reference ML implementations. CatBoost denial predictor, drift detection, payer clustering. |
 | [API documentation](https://upstream.cx/developers) | REST API reference, OpenAPI spec, webhook contracts, rate limits. |
 | [Free API key](https://upstream.cx/developers/keys) | 500 calls per month, no credit card, 12 minute setup. |
