@@ -27,7 +27,7 @@ What payers are doing right now. How it affects your revenue. What to do about i
 
 ## 30 seconds
 
-**Upstream is a Care Intelligence Platform.** It detects payer behavior shifts: denial spikes, adjudication policy changes, payment slowdowns. These surface before traditional reporting catches them. Operators across eight healthcare specialties use Upstream to act before the damage lands.
+**Upstream is a Care Intelligence Platform.** It detects payer behavior shifts: denial spikes, adjudication policy changes, payment slowdowns. These surface before traditional reporting catches them. Operators across nine healthcare verticals use Upstream to act before the damage lands.
 
 **It is not a clearinghouse.** Upstream sits on top of your existing billing stack as a force multiplier. We do not bill payers. We do not bill patients. We do not replace your billing team. We tell them what to work on and when.
 
@@ -43,7 +43,7 @@ Your billing team learns about a denial spike when this month's report lands. By
 
 Upstream is the early warning system. We monitor payer adjudication patterns and surface shifts the first time they appear, not the thirtieth. Your team gets an actionable alert in their queue with the specific payer, the specific code, and the specific fix. Before the wave hits.
 
-Works across ABA, SNF, PT/OT, dental, dialysis, imaging, home health, and behavioral health. The detection engine is the same across specialties. The packs add the workflow.
+Works across ABA, mental health, SUD, SNF, PT/OT, dental, dialysis, imaging, and home health. The detection engine is the same across specialties. The packs add the workflow.
 
 ---
 
@@ -94,7 +94,7 @@ Upstream is in a different lane than clearinghouses or legacy enterprise RCM. Mo
 | Pre-submission claim risk scoring | ✓ | Limited | Limited | ✗ |
 | Denial drift detection (statistical) | ✓ | ✗ | Manual | ✗ |
 | Payer cluster classification | ✓ | ✗ | ✗ | ✗ |
-| Specialty workflow logic | Eight specialties | Generic | Generic + custom | Generic |
+| Specialty workflow logic | Nine verticals | Generic | Generic + custom | Generic |
 | Setup time | 12 minutes | Days to weeks | Months | Hours |
 | Replaces billing team | ✗ | ✗ | Sometimes | ✗ |
 | Bills payers | ✗ | ✓ | ✓ | ✗ |
@@ -127,7 +127,7 @@ Upstream is a working production system, not a slide deck. Numbers below are pul
 | Signal | Count | Source |
 |---|---|---|
 | Open source modules | 7 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) |
-| Specialty packs shipped | 8 | ABA, SNF, PT/OT, dental, dialysis, imaging, home health, behavioral health |
+| Specialty packs shipped | 9 | ABA, mental health, SUD, SNF, PT/OT, dental, dialysis, imaging, home health |
 | Detection engines live | 6 | DriftWatch, DenialScope, DelayGuard, Authorization Tracking, Pre-Submission Risk Scoring, Behavioral Prediction |
 | Public Claude MCP tools | 12 | [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) |
 | Public Claude Code skills | 8 | [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) |
@@ -194,7 +194,7 @@ This is what your billing team sees in their queue the morning a payer behavior 
 ## FAQ
 
 **What is Upstream?**
-A Care Intelligence Platform that detects payer behavior shifts (denial spikes, adjudication policy changes, payment slowdowns) before traditional reporting catches them. Built for healthcare practices in ABA, SNF, PT/OT, dental, dialysis, imaging, home health, and behavioral health.
+A Care Intelligence Platform that detects payer behavior shifts (denial spikes, adjudication policy changes, payment slowdowns) before traditional reporting catches them. Built for healthcare practices in ABA, mental health, SUD, SNF, PT/OT, dental, dialysis, imaging, and home health.
 
 **Is Upstream a clearinghouse?**
 No. Upstream sits on top of your existing billing stack as a force multiplier. We do not bill payers. We do not bill patients. We do not replace your billing team. We tell them what to work on and when.

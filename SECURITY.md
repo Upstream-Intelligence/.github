@@ -21,7 +21,7 @@ We acknowledge receipt within 48 hours and provide an initial assessment within 
 In scope for our security program:
 
 - All public repositories under https://github.com/Upstream-Intelligence
-- The Upstream MCP server (@upstream-health/mcp-server on npm)
+- The Upstream MCP server (`@upstream-intelligence/mcp` on npm)
 - The Upstream public API (api.upstream.cx)
 - The Upstream marketing site (upstream.cx)
 
