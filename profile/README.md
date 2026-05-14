@@ -200,7 +200,7 @@ A Care Intelligence Platform that detects payer behavior shifts (denial spikes, 
 No. Upstream sits on top of your existing billing stack as a force multiplier. We do not bill payers. We do not bill patients. We do not replace your billing team. We tell them what to work on and when.
 
 **Is Upstream HIPAA compliant?**
-Yes. PHI is encrypted at rest using Fernet (AES-128-CBC plus HMAC-SHA256). All claims data lives within a customer scoped tenant boundary. Network signals are derived from anonymized aggregations. Full BAA on every paid plan. SOC 2 Type II in progress.
+Yes. PHI is encrypted at rest using Fernet (AES-128-CBC plus HMAC-SHA256). All claims data lives within a customer scoped tenant boundary. Network signals are derived from anonymized aggregations. Full BAA on every paid plan. SOC 2 controls are in place and the formal Type II audit kicks off as the first Pioneer cohort signs.
 
 **What does Upstream cost?**
 Pioneer beta access starts at $49 per month, locked for life. Production tiers run from $149 per month (Starter) to $1,299 per month (Enterprise). RCM Intelligence Command is $1,999 to $4,999 per month for multi location groups and outsourced billing companies. Full pricing at [upstream.cx/pricing](https://upstream.cx/pricing).
@@ -253,7 +253,7 @@ Free monthly newsletter covering payer behavior shifts, regulatory updates, and 
 
 Security disclosure → security@upstream.cx · [SECURITY.md](https://github.com/Upstream-Intelligence/.github/blob/main/SECURITY.md)
 
-HIPAA: Fernet AES-128-CBC + HMAC-SHA256. BAA available on all paid plans. SOC 2 Type II in progress. Data export and destruction on cancellation per BAA.
+HIPAA: Fernet AES-128-CBC + HMAC-SHA256. BAA available on all paid plans. SOC 2 controls in place; formal Type II audit begins with first Pioneer cohort. Data export and destruction on cancellation per BAA.
 
 Questions: hello@upstream.cx
 
