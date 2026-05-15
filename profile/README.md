@@ -203,7 +203,7 @@ No. Upstream sits on top of your existing billing stack as a force multiplier. W
 Yes. PHI is encrypted at rest using Fernet (AES-128-CBC plus HMAC-SHA256). All claims data lives within a customer scoped tenant boundary. Network signals are derived from anonymized aggregations. Full BAA on every paid plan. SOC 2 controls are in place and the formal Type II audit kicks off as the first Pioneer cohort signs.
 
 **What does Upstream cost?**
-Pioneer beta access starts at $49 per month, locked for life. Production tiers run from $149 per month (Starter) to $1,299 per month (Enterprise). RCM Intelligence Command is $1,999 to $4,999 per month for multi location groups and outsourced billing companies. Full pricing at [upstream.cx/pricing](https://upstream.cx/pricing).
+Pioneer beta access starts at $49 per month, locked for life. Production tier starts at $349 per month (Pro). Larger plans for multi-location groups and outsourced billing companies are quoted via [upstream.cx/pricing](https://upstream.cx/pricing).
 
 **Is there a free tier?**
 The Upstream MCP server has a free tier with 500 API calls per month and no credit card. Free tools include the [Plan Denial Heatmap](https://upstream.cx/tools/denial-heatmap) and the [Prior Auth Sandbox](https://upstream.cx/tools/prior-auth-sandbox). The full platform requires a paid tier (Pioneer $49 per month or higher).
@@ -234,8 +234,6 @@ Your claims data lives in your customer scoped tenant boundary. PHI is encrypted
 **Action queue.** The prioritized list of issues for billing team review, sorted by dollar weighted impact and confidence tier.
 
 **Confidence tier.** A three level classification of automated actions. Tier 1 auto-executes high confidence low impact tasks. Tier 2 queues for review. Tier 3 escalates to operator decision.
-
-**RCM Intelligence Command.** The Upstream tier for multi location groups and outsourced billing companies. Bundles Care Intelligence, Payer Intelligence, Denial Management, and Prior Authorization Intelligence. $1,999 to $4,999 per month.
 
 ---
 
