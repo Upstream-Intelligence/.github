@@ -17,13 +17,11 @@ What payers are doing right now. How it affects your revenue. What to do about i
 
 </div>
 
-> **Founding 5 Pioneer Program**: 5 founding operator seats. 0 claimed. Closing when claimed.
+> **Founding Pioneer cohort is open.** Forty nine dollars a month, locked for life. Limited seats.
 >
 > Pioneer seat unlocks: $49/mo locked for life across all future tiers · Direct input into the detection roadmap · Co-authored case study credit when your numbers improve · Quarterly 1:1 strategy call · First access to new specialty packs as they ship.
 >
-> The 6th operator pays Starter pricing. Founding seats compound forever.
->
-> [Claim a Founding 5 seat →](https://upstream.cx/pricing) · [Free claim audit first](https://upstream.cx/audit)
+> [Claim a Pioneer seat →](https://upstream.cx/pricing) · [Free claim audit first](https://upstream.cx/audit)
 
 ---
 
@@ -201,7 +199,7 @@ This is what your billing team sees in their queue the morning a payer behavior 
 | Resource | What it gives you |
 |---|---|
 | [Free claim audit](https://upstream.cx/audit) | Upload one claim file, get back denial pattern analysis. No credit card. |
-| [Pricing](https://upstream.cx/pricing) | Pioneer beta $49 per month locked for life. Production tiers from $149 per month. |
+| [Pricing](https://upstream.cx/pricing) | Pioneer beta $49 per month locked for life. Pro tier $349 per month. Larger plans on request. |
 | [Newsletter](https://upstream.cx/newsletter) | Monthly digest of payer behavior shifts and regulatory updates. Free. |
 | [Blog](https://blog.upstream.cx) | Deep dives on payer behavior, regulatory changes, and operator playbooks. |
 | [Pack pages](https://upstream.cx/packs) | Specialty deep dives: ABA, SNF, PT/OT, dental, dialysis, imaging, home health, behavioral health. |
