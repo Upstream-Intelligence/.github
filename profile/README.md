@@ -17,25 +17,25 @@ What payers are doing right now. How it affects your revenue. What to do about i
 
 </div>
 
-> **Founding 5 Pioneer Program**: 5 founding operator seats. 0 claimed. Closing when claimed.
+> **Founding Pioneer Program**
 >
 > Pioneer seat unlocks: $49/mo locked for life across all future tiers · Direct input into the detection roadmap · Co-authored case study credit when your numbers improve · Quarterly 1:1 strategy call · First access to new specialty packs as they ship.
 >
 > The 6th operator pays Starter pricing. Founding seats compound forever.
 >
-> [Claim a Founding 5 seat →](https://upstream.cx/pricing) · [Free claim audit first](https://upstream.cx/audit)
+> [Claim a Founding Seat →](https://upstream.cx/pricing) · [Free Claim Audit First? →](https://upstream.cx/audit)
 
 ---
 
 ## 30 seconds
 
-**Upstream is a Care Intelligence Platform.** It detects payer behavior shifts: denial spikes, adjudication policy changes, payment slowdowns. These surface before traditional reporting catches them. Operators across nine healthcare verticals use Upstream to act before the damage lands.
+**Upstream is a Care Intelligence Platform.** It detects payer behavior shifts: denial spikes, adjudication policy changes, payment slowdowns. These surface before traditional reporting catches them. Operators across nine healthcare domains are using Upstream to act before the damage lands.
 
 **It is not a clearinghouse.** Upstream sits on top of your existing billing stack as a force multiplier. We do not bill payers. We do not bill patients. We do not replace your billing team. We tell them what to work on and when.
 
 **Pioneer beta is open.** $49 per month, locked for life. First actionable payer pattern in 30 days or your money back.
 
-[Claim a Pioneer seat](https://upstream.cx/pricing) · [Free claim audit](https://upstream.cx/audit)
+[Claim a Pioneer seat →](https://upstream.cx/pricing) · [Free claim audit →](https://upstream.cx/audit)
 
 ---
 
