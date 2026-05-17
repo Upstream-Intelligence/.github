@@ -39,7 +39,7 @@ What payers are doing right now. How it affects your revenue. What to do about i
 
 ## The Upstream ecosystem
 
-The Upstream Care Intelligence Platform itself is closed-source. The repositories on this GitHub org are the open methodology, integrations, tools, and curated references that surround it.
+Three layers. The Care Intelligence Platform is a paid SaaS. The Upstream API and the MCP server below are paid products with MIT-licensed open clients (free evaluation tier: 500 calls/month, paid tiers for production). The Skills, community methodology, and curated reference list are pure OSS for the broader RCM community.
 
 | Repo | What it is | Use if you... |
 |---|---|---|
