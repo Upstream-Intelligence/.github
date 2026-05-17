@@ -3,8 +3,10 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/upstream-wordmark-dark.svg">
-  <img src=".github/assets/upstream-wordmark-light.svg" alt="Upstream" width="220" />
+  <source media="(prefers-color-scheme: dark)"
+          srcset="https://raw.githubusercontent.com/Upstream-Intelligence/.github/main/.github/assets/upstream-wordmark-dark.svg">
+  <img src="https://raw.githubusercontent.com/Upstream-Intelligence/.github/main/.github/assets/upstream-wordmark-light.svg"
+       alt="Upstream" width="220" />
 </picture>
 
 **Care Intelligence Platform for healthcare practices.**
@@ -34,6 +36,21 @@ What payers are doing right now. How it affects your revenue. What to do about i
 **Pioneer beta is open.** $49 per month, locked for life. First actionable payer pattern in 30 days or your money back.
 
 [Claim a Pioneer seat](https://upstream.cx/pricing) · [Free claim audit](https://upstream.cx/audit)
+
+---
+
+## The Upstream ecosystem
+
+The Upstream Care Intelligence Platform itself is closed-source. The repositories on this GitHub org are the open methodology, integrations, tools, and curated references that surround it.
+
+| Repo | What it is | Use if you... |
+|---|---|---|
+| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | Model Context Protocol server | want pre-submission claim risk, denial intel, and payer signals inside your Claude workflow. |
+| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Eight Claude Code skills for billing teams | want denial decoding, appeal drafting, NCCI checks, and prior-auth readiness as slash commands. |
+| [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) | Open ML reference implementations | want to see the statistical methodology behind denial detection. Public CMS data only. |
+| [awesome-payer-risk](https://github.com/Upstream-Intelligence/awesome-payer-risk) | Curated RCM resource list | are getting started in payer behavior and need a reading list. |
+
+The product itself lives at [upstream.cx](https://upstream.cx). The repos above are how the platform meets the open-source community.
 
 ---
 

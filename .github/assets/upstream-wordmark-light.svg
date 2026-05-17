@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70">
   <!--
-    Upstream U Mark — Wordmark lockup
+    Upstream U Mark - Wordmark lockup
     U mark (left) + "upstream" in Inter/system bold (right).
     Baseline-aligned. Scaled mark at 60px, text matching cap height.
   -->
@@ -29,7 +29,7 @@
     "/>
   </g>
 
-  <!-- "upstream" text — Inter Bold / system sans-serif, cap height matches mark -->
+  <!-- "upstream" text - Inter Bold / system sans-serif, cap height matches mark -->
   <text
     x="72"
     y="53"
