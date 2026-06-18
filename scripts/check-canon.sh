@@ -18,8 +18,12 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 # Retired program + pricing + pack framing. Case-insensitive.
 PATTERN='pioneer|founding 5|founding pioneer|locked for life|\$49|\$349|specialty pack|/pioneer'
 
-# Scan the public surfaces only. Exclude this script (it contains the banned list).
-hits="$(grep -rIniE "$PATTERN" "$ROOT/profile" "$ROOT/FUNDING.yml" \
+# Scan the whole repo: profile/README.md + FUNDING.yml drifted, but BRAND.md,
+# SECURITY.md, SUPPORT.md, CONTRIBUTING.md and the other org-default files are
+# public surfaces too and were unguarded. Exclude this script (it holds the list).
+hits="$(grep -rIniE "$PATTERN" "$ROOT" \
+  --exclude-dir=.git \
+  --exclude-dir=node_modules \
   --exclude="check-canon.sh" 2>/dev/null || true)"
 
 if [ -n "$hits" ]; then
