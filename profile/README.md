@@ -11,29 +11,29 @@
 
 **Care Intelligence Platform for healthcare practices.**
 
-What payers are doing right now. How it affects your revenue. What to do about it.
+Care intelligence from benefits and eligibility through revenue intelligence. What payers are doing right now, what it means for the practice, and the prepared action your team approves.
 
 [Website](https://upstream.cx) · [Pricing](https://upstream.cx/pricing) · [Developer keys](https://upstream.cx/developers/keys) · [Newsletter](https://upstream.cx/newsletter)
 
 </div>
 
-> **Founding Pioneer Program**
+> **Start free, pay when you submit**
 >
-> Pioneer seat unlocks: $49/mo locked for life across all future tiers · Direct input into the detection roadmap · Co-authored case study credit when your numbers improve · Quarterly 1:1 strategy call · First access to new specialty packs as they ship.
+> Assist is free: payer intelligence, eligibility, and prior-auth requirements. Pay as you go is from $18 per prepared submission with no monthly base. Co-pilot and Autopilot add the prepared workflow when you want it.
 >
-> [Claim a Pioneer seat →](https://upstream.cx/pricing) · [Free claim audit](https://upstream.cx/audit)
+> [Start with Assist (free) →](https://app.upstream.cx/signup?tier=assist) · [Free claim audit](https://upstream.cx/audit)
 
 ---
 
 ## 30 seconds
 
-**Upstream is a Care Intelligence Platform.** It detects payer behavior shifts: denial spikes, adjudication policy changes, payment slowdowns. These surface before traditional reporting catches them. Operators across nine healthcare verticals use Upstream to act before the damage lands.
+**Upstream is a Care Intelligence Platform.** It detects payer behavior shifts: denial spikes, adjudication policy changes, payment slowdowns. These surface before traditional reporting catches them. Specialty practices use Upstream to act before the damage lands.
 
 **It is not a clearinghouse.** Upstream sits on top of your existing billing stack as a force multiplier. We do not bill payers. We do not bill patients. We do not replace your billing team. We tell them what to work on and when.
 
-**Pioneer beta is open.** $49 per month, locked for life. First actionable payer pattern in 30 days or your money back.
+**One connected platform.** Benefits and eligibility, prior authorization, denial management, payer intelligence, and revenue intelligence stay connected and under approval. Nothing executes until a person on your team approves it.
 
-[Claim a Pioneer seat →](https://upstream.cx/pricing) · [Free claim audit →](https://upstream.cx/audit)
+[Start with Assist (free) →](https://app.upstream.cx/signup?tier=assist) · [Free claim audit →](https://upstream.cx/audit)
 
 ---
 
@@ -44,7 +44,7 @@ Three layers. The Care Intelligence Platform is a paid SaaS. The Upstream API an
 | Repo | What it is | Use if you... |
 |---|---|---|
 | [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | Model Context Protocol server | want pre-submission claim risk, denial intel, and payer signals inside your Claude workflow. |
-| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Eight Claude Code skills for billing teams | want denial decoding, appeal drafting, NCCI checks, and prior-auth readiness as slash commands. |
+| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Nine Claude Code skills for billing teams | want denial decoding, appeal drafting, NCCI checks, and prior-auth readiness as slash commands. |
 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) | Open ML reference implementations | want to see the statistical methodology behind denial detection. Public CMS data only. |
 | [awesome-payer-risk](https://github.com/Upstream-Intelligence/awesome-payer-risk) | Curated RCM resource list | are getting started in payer behavior and need a reading list. |
 
@@ -56,20 +56,23 @@ The product itself lives at [upstream.cx](https://upstream.cx). The repos above 
 
 Your billing team learns about a denial spike when this month's report lands. By then it has already cost you the quarter.
 
-Upstream is the early warning system. We monitor payer adjudication patterns and surface shifts the first time they appear, not the thirtieth. Your team gets an actionable alert in their queue with the specific payer, the specific code, and the specific fix. Before the wave hits.
+Upstream is the early warning system. We monitor payer adjudication patterns and surface shifts the first time they appear, not the thirtieth. Your team gets an actionable alert in their queue with the specific payer, the specific code, and the specific fix.
 
-Works across ABA, mental health, SUD, SNF, PT/OT, dental, dialysis, imaging, and home health. The detection engine is the same across specialties. The packs add the workflow.
+One connected platform covers the specialty practices we serve. The detection engine is the same across specialties; the practice context shapes the workflow.
 
 ---
 
 ## How it works
 
-1. **Connect.** Claims data, 835 remittance, authorization data, EHR webhooks. APIs, CSV uploads, or pre-built connectors.
-2. **Detect.** DriftWatch (statistical denial rate detection), DenialScope (dollar weighted impact), DelayGuard (payment timing deterioration), and specialty specific checks run continuously.
-3. **Prioritize.** Issues route by confidence tier and dollar weighted impact. The highest impact, highest confidence work surfaces first.
-4. **Act.** One click appeal generation. Auto submit for low risk fixes. Escalate high impact decisions to operators with the document trail attached.
+Upstream runs one approval-gated loop. The same workflow objects carry readiness, urgency, the next safe action, execution state, and evidence.
 
-Setup is 12 minutes. Pioneer beta target: first actionable payer pattern in 30 days or your money back.
+1. **Signal.** A change in payer behavior or a requirement worth acting on. DriftWatch (statistical denial rate detection), DenialScope (dollar weighted impact), and DelayGuard (payment timing deterioration) run continuously.
+2. **Brief.** Plain language: what changed and what it means for the practice.
+3. **Action.** The prepared work. An appeal, a submission, a verification, scored and ready.
+4. **Approval.** A person on your team approves before anything executes.
+5. **Outcome.** The tracked result, carried forward into the next case.
+
+Connect via APIs, CSV uploads, EHR webhooks, or 835 remittance ingestion.
 
 ---
 
@@ -77,25 +80,21 @@ Setup is 12 minutes. Pioneer beta target: first actionable payer pattern in 30 d
 
 | Pillar | What it does |
 |---|---|
-| **Care Intelligence** | Operational visibility for the people delivering care. Authorization burn, unit and visit tracking, expiration prevention, scheduling friction signals. |
-| **Payer Intelligence** | Behavioral fingerprinting. Aggressive Denier, Slow Payer, Prompt Payer, Underpayer cluster classifications. Adjudication shift detection with the date of detection. |
-| **Denial Management** | DriftWatch (statistical denial rate detection), DenialScope (dollar weighted impact), DelayGuard (payment timing deterioration). Action queue with one click appeal generation. |
+| **Benefits and Eligibility** | Coverage and eligibility posture kept current, with prior-auth requirements surfaced before submission. |
 | **Prior Authorization Intelligence** | Pre-submission authorization scoring. Approval probability with specific risk factors. Renewal tracking with 30, 14, and 3 day warnings. |
+| **Denial Management** | DriftWatch (statistical denial rate detection), DenialScope (dollar weighted impact), DelayGuard (payment timing deterioration). Action queue with one click appeal generation. |
+| **Payer Intelligence** | Behavioral fingerprinting. Aggressive Denier, Slow Payer, Prompt Payer, Underpayer cluster classifications. Adjudication shift detection with the date of detection. |
+| **Revenue Intelligence** | Dollar weighted impact across the loop, from detection through recovered outcome. |
 
 ---
 
 ## Specialty coverage
 
-| Specialty | What ships |
-|---|---|
-| **ABA** | Authorization unit tracking, session monitoring, reauthorization windows, credentialing alerts. |
-| **SNF (Skilled Nursing)** | PDPM payment variance, MA reimbursement drift, census risk, stay level alerts, UB-04 revenue code monitoring. |
-| **PT / OT** | 8 minute rule compliance, KX modifier threshold tracking ($2,410), session compliance, visit limit warnings. |
-| **Dental** | PPO economics signals, downcoding pattern detection, bundling alerts, contract risk visibility, silent PPO detection. |
-| **Dialysis** | ESRD PPS variance, MA reimbursement drift, TDAPA and TPNIES tracking, treatment authorization. |
-| **Imaging** | Prior authorization requirements by RBM (eviCore, AIM), AUC compliance, advanced imaging risk scoring. |
-| **Home Health** | PDGM grouping, Face to Face encounter tracking, NOA timing, certification cycle management. |
-| **Behavioral Health** | Authorization windows, session monitoring, denial pattern detection across plan types. |
+One connected platform. The detection engine is shared; the practice context shapes the workflow.
+
+| Specialties served |
+|---|
+| Infusion · Oncology · Rheumatology · Gastroenterology · Neurology · Cardiology · Orthopedics · Pain Management |
 
 ---
 
@@ -109,8 +108,7 @@ Upstream is in a different lane than clearinghouses or legacy enterprise RCM. Mo
 | Pre-submission claim risk scoring | ✓ | Limited | Limited | ✗ |
 | Denial drift detection (statistical) | ✓ | ✗ | Manual | ✗ |
 | Payer cluster classification | ✓ | ✗ | ✗ | ✗ |
-| Specialty workflow logic | Nine verticals | Generic | Generic + custom | Generic |
-| Setup time | 12 minutes | Days to weeks | Months | Hours |
+| Approval-gated execution | ✓ | ✗ | Partial | ✗ |
 | Replaces billing team | ✗ | ✗ | Sometimes | ✗ |
 | Bills payers | ✗ | ✓ | ✓ | ✗ |
 | Open methodology | ✓ ([upstream-community](https://github.com/Upstream-Intelligence/upstream-community)) | ✗ | ✗ | n/a |
@@ -129,30 +127,30 @@ The core platform stays private. Three tools are openly available.
 
 | Repository | What it is | License |
 |---|---|---|
-| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | Model Context Protocol server. Bring Upstream intelligence into Claude with 12 tools across 5 categories. | MIT |
-| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Claude Code skill pack. Eight workflow skills for billing teams. | MIT |
+| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | Model Context Protocol server. Bring Upstream intelligence into Claude. | MIT |
+| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Claude Code skill pack. Nine workflow skills for billing teams. | MIT |
 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) | Reference ML implementations using public CMS data. CatBoost denial predictor, drift detection, payer clustering. Methodology, not weights. | MIT |
 
 ---
 
 ## Built in public
 
-Upstream is a working production system, not a slide deck. Numbers below are pulled from the actual codebase.
+Upstream is a working production system, not a slide deck.
 
 | Signal | Count | Source |
 |---|---|---|
 | Open source modules | 7 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) |
-| Specialty packs shipped | 9 | ABA, mental health, SUD, SNF, PT/OT, dental, dialysis, imaging, home health |
+| Specialties served | 8 | Infusion, Oncology, Rheumatology, GI, Neurology, Cardiology, Orthopedics, Pain Management |
 | Detection engines live | 6 | DriftWatch, DenialScope, DelayGuard, Authorization Tracking, Pre-Submission Risk Scoring, Behavioral Prediction |
-| Public Claude MCP tools | 12 | [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) |
-| Public Claude Code skills | 8 | [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) |
+| Public Claude MCP tools | [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | Operator and intelligence tools for Claude |
+| Public Claude Code skills | 9 | [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) |
 | Public CMS data integrations | 7 | NCCI, CARC, RARC, MUE, Physician Fee Schedule, NPPES, Federal Register |
 | Free tools live | 3 | Claim audit, Plan Denial Heatmap, Prior Auth Sandbox |
 | BAA template | Available | hello@upstream.cx |
 | Security disclosure path | Active | security@upstream.cx |
 | HIPAA technical safeguards | Implemented | [SECURITY.md](https://github.com/Upstream-Intelligence/.github/blob/main/SECURITY.md) |
 
-Last updated: 2026-04-25
+Last updated: 2026-06-17
 
 ---
 
@@ -167,7 +165,7 @@ Real alert format. Synthetic example for illustration only.
 > **Scope**: Network-wide pattern
 >
 > **What we saw**
-> UnitedHealthcare adjudication of CPT 97155 paired with diagnosis F84.0 shifted from a 8.2 percent denial baseline (13 week window) to 31.4 percent denial in the last 7 days. Chi-square p less than 0.001. Pattern detected on 835 remittance from multiple operators across 3 states on the same day.
+> UnitedHealthcare adjudication of a high-volume specialty code shifted from a 8.2 percent denial baseline (13 week window) to 31.4 percent denial in the last 7 days. Chi-square p less than 0.001. Pattern detected on 835 remittance from multiple operators across 3 states on the same day.
 >
 > **Affected work in your account**
 > 23 in-flight authorizations match the new pattern.
@@ -186,11 +184,11 @@ This is what your billing team sees in their queue the morning a payer behavior 
 
 | Resource | What it gives you |
 |---|---|
-| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | MCP server. Bring Upstream into Claude with 12 tools across 5 categories. |
-| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Claude Code skill pack. Eight workflow skills for billing teams. |
+| [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) | MCP server. Bring Upstream into Claude. |
+| [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) | Claude Code skill pack. Nine workflow skills for billing teams. |
 | [upstream-community](https://github.com/Upstream-Intelligence/upstream-community) | Reference ML implementations. CatBoost denial predictor, drift detection, payer clustering. |
 | [API documentation](https://upstream.cx/developers) | REST API reference, OpenAPI spec, webhook contracts, rate limits. |
-| [Free API key](https://upstream.cx/developers/keys) | 500 calls per month, no credit card, 12 minute setup. |
+| [Free API key](https://upstream.cx/developers/keys) | 500 calls per month, no credit card. |
 
 ---
 
@@ -199,35 +197,35 @@ This is what your billing team sees in their queue the morning a payer behavior 
 | Resource | What it gives you |
 |---|---|
 | [Free claim audit](https://upstream.cx/audit) | Upload one claim file, get back denial pattern analysis. No credit card. |
-| [Pricing](https://upstream.cx/pricing) | Pioneer beta $49 per month locked for life. Pro tier $349 per month. Larger plans on request. |
+| [Pricing](https://upstream.cx/pricing) | Assist free. Pay as you go from $18 per submission. Co-pilot from $1,500 per month plus $12 per submission. Autopilot custom. |
 | [Newsletter](https://upstream.cx/newsletter) | Monthly digest of payer behavior shifts and regulatory updates. Free. |
 | [Blog](https://blog.upstream.cx) | Deep dives on payer behavior, regulatory changes, and operator playbooks. |
-| [Pack pages](https://upstream.cx/packs) | Specialty deep dives: ABA, SNF, PT/OT, dental, dialysis, imaging, home health, behavioral health. |
+| [Specialties](https://upstream.cx/specialties) | The specialty practices Upstream serves on one connected platform. |
 
 ---
 
 ## FAQ
 
 **What is Upstream?**
-A Care Intelligence Platform that detects payer behavior shifts (denial spikes, adjudication policy changes, payment slowdowns) before traditional reporting catches them. Built for healthcare practices in ABA, mental health, SUD, SNF, PT/OT, dental, dialysis, imaging, and home health.
+A Care Intelligence Platform that detects payer behavior shifts (denial spikes, adjudication policy changes, payment slowdowns) before traditional reporting catches them. One connected platform for specialty practices, under approval.
 
 **Is Upstream a clearinghouse?**
 No. Upstream sits on top of your existing billing stack as a force multiplier. We do not bill payers. We do not bill patients. We do not replace your billing team. We tell them what to work on and when.
 
 **Is Upstream HIPAA compliant?**
-Yes. PHI is encrypted at rest using Fernet (AES-128-CBC plus HMAC-SHA256). All claims data lives within a customer scoped tenant boundary. Network signals are derived from anonymized aggregations. Full BAA on every paid plan. SOC 2 controls are in place and the formal Type II audit kicks off as the first Pioneer cohort signs.
+Yes. PHI is encrypted at rest using Fernet (AES-128-CBC plus HMAC-SHA256). All claims data lives within a customer scoped tenant boundary. Network signals are derived from anonymized aggregations. Full BAA on every paid plan. SOC 2 controls are in place.
 
 **What does Upstream cost?**
-Pioneer beta access starts at $49 per month, locked for life. Production tier starts at $349 per month (Pro). Larger plans for multi-location groups and outsourced billing companies are quoted via [upstream.cx/pricing](https://upstream.cx/pricing).
+Assist is free. Pay as you go is from $18 per prepared submission with no monthly base. Co-pilot is from $1,500 per month plus $12 per submission. Autopilot is custom, scoped to your volume. Details at [upstream.cx/pricing](https://upstream.cx/pricing).
 
 **Is there a free tier?**
-The Upstream MCP server has a free tier with 500 API calls per month and no credit card. Free tools include the [Plan Denial Heatmap](https://upstream.cx/tools/denial-heatmap) and the [Prior Auth Sandbox](https://upstream.cx/tools/prior-auth-sandbox). The full platform requires a paid tier (Pioneer $49 per month or higher).
+Yes. Assist is free, and the Upstream MCP server has a free tier with 500 API calls per month and no credit card. Free tools include the [Plan Denial Heatmap](https://upstream.cx/tools/denial-heatmap) and the [Prior Auth Sandbox](https://upstream.cx/tools/prior-auth-sandbox).
 
 **Does Upstream work with my EHR or billing system?**
-Upstream connects via APIs, CSV uploads, EHR webhooks, or 835 remittance ingestion. Pre built connectors are available for Epic (FHIR R4), athenahealth, and Cerner. Open Dental, Dentrix, and Eaglesoft connectors are on the roadmap.
+Upstream connects via APIs, CSV uploads, EHR webhooks, or 835 remittance ingestion.
 
 **How does Upstream compare to Adonis or Waystar?**
-Different lane. Adonis orchestrates billing team work. Waystar is a clearinghouse plus revenue cycle management platform. Upstream watches what payers actually do to your claims and tells you 30 to 60 days before it costs you. Most operators run Upstream alongside one or both of those tools.
+Different lane. Adonis orchestrates billing team work. Waystar is a clearinghouse plus revenue cycle management platform. Upstream watches what payers actually do to your claims and tells you 30 to 60 days ahead of the cost. Most operators run Upstream alongside one or both of those tools.
 
 **What happens to my data?**
 Your claims data lives in your customer scoped tenant boundary. PHI is encrypted at rest. Aggregated, anonymized signals contribute to the network detection engine. You can export your data at any time. Full data destruction available on plan cancellation per the BAA.
@@ -266,7 +264,7 @@ Free monthly newsletter covering payer behavior shifts, regulatory updates, and 
 
 Security disclosure → security@upstream.cx · [SECURITY.md](https://github.com/Upstream-Intelligence/.github/blob/main/SECURITY.md)
 
-HIPAA: Fernet AES-128-CBC + HMAC-SHA256. BAA available on all paid plans. SOC 2 controls in place; formal Type II audit begins with first Pioneer cohort. Data export and destruction on cancellation per BAA.
+HIPAA: Fernet AES-128-CBC + HMAC-SHA256. BAA available on all paid plans. SOC 2 controls in place. Data export and destruction on cancellation per BAA.
 
 Questions: hello@upstream.cx
 
