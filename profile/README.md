@@ -19,10 +19,10 @@ Upstream reads payer behavior at the source, briefs the operator on what it mean
 
 ## Public repos in this org
 
-- `upstream-mcp` — Upstream MCP server, exposing Care Intelligence as Model Context Protocol tools
-- `upstream-skills` — reusable Claude / agent skills for healthcare workflows
-- `upstream-community` — discussions, ideas, and operator-led knowledge
-- `awesome-payer-risk` — curated list of payer behavior tracking, denial intelligence, and care ops tooling
+- `upstream-mcp` - Upstream MCP server, exposing Care Intelligence as Model Context Protocol tools
+- `upstream-skills` - reusable Claude / agent skills for healthcare workflows
+- `upstream-community` - discussions, ideas, and operator-led knowledge
+- `awesome-payer-risk` - curated list of payer behavior tracking, denial intelligence, and care ops tooling
 
 The core platform repo and the synthetic data SDK are private at this time.
 
