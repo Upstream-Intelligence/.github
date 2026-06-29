@@ -8,7 +8,7 @@
 # cannot silently drift again.
 #
 # Current canon source: upstream-v2/marketing/src/lib/site.ts
-#   Tiers = Assist (free) / Pay as you go (from $18) / Co-pilot / Autopilot.
+#   Tiers = Assist (free) / Pay as you go (from $18) / Flex / Autopilot.
 #   ONE connected platform. No packs, no verticals, no Pioneer.
 # Mirrors the sibling repos' scripts/check-canon.sh.
 set -euo pipefail
@@ -30,7 +30,7 @@ if [ -n "$hits" ]; then
   echo "FAIL: retired Pioneer / pricing / pack framing on a public surface:" >&2
   echo "$hits" >&2
   echo "" >&2
-  echo "Current canon: Assist (free) / Pay as you go / Co-pilot / Autopilot. ONE platform, no packs." >&2
+  echo "Current canon: Assist (free) / Pay as you go / Flex / Autopilot. ONE platform, no packs." >&2
   echo "Source of truth: upstream-v2/marketing/src/lib/site.ts" >&2
   exit 1
 fi
