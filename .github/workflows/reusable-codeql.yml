@@ -16,7 +16,7 @@ jobs:
       matrix:
         language: ["javascript-typescript", "python"]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - id: skip
         env:
           LANG: ${{ matrix.language }}
