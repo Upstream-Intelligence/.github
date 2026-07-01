@@ -8,6 +8,6 @@ jobs:
   canon:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Verify no retired pricing or program framing on public surfaces
         run: bash scripts/check-canon.sh

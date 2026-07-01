@@ -30,7 +30,7 @@ jobs:
       has_python: ${{ steps.d.outputs.has_python }}
       pkg_manager: ${{ steps.d.outputs.pkg_manager }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - id: d
         env:
           STACK: ${{ inputs.stack }}
@@ -68,7 +68,7 @@ jobs:
     env:
       PM: ${{ needs.detect.outputs.pkg_manager }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: pnpm/action-setup@v6
         if: needs.detect.outputs.pkg_manager == 'pnpm'
@@ -148,7 +148,7 @@ jobs:
       run:
         working-directory: ${{ inputs.working_directory }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: ${{ inputs.python_version }}
