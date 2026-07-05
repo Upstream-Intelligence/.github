@@ -1,4 +1,4 @@
-# Upstream Intelligence GitHub Profile — Agent Instructions
+# Upstream Intelligence .github — Agent Instructions
 
 ## Ecosystem Context
 
@@ -18,13 +18,14 @@ workspace graph for cross-repo relationships:
 | `upstream-skills` | Claude Code skills for Upstream workflows |
 | `upstream-community` | Community docs and contributor resources |
 | `awesome-payer-risk` | Curated payer risk resources (public) |
-| `upstream-intelligence-github` | **This repo** — GitHub org profile README |
-| `upstream-intelligence-dotgithub` | Default org-level GitHub config |
+| `upstream-intelligence-github` | GitHub org profile README |
+| `upstream-intelligence-dotgithub` | **This repo** — Default org-level GitHub config |
 
 ### Production system
 
-`upstream-v2` is the live production system. This repo holds the public GitHub organization
-profile README. Keep it aligned with the current product positioning and production state.
+`upstream-v2` is the live production system. This repo holds org-level GitHub configuration
+(default repo templates, issue labels, org-level settings). Keep it aligned with the current
+org structure and repo inventory.
 
 ## Code Graph
 
